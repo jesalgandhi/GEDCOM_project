@@ -7,6 +7,8 @@ M2.B3: Assignment: Project 2 - GEDCOM data
 import collections
 from datetime import * 
 
+
+
 supported_tags = [
     'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 
     'WIFE', 'CHIL', 'DIV', 'DATE', 'HEAD', 'TRLR', 'NOTE'
@@ -59,17 +61,26 @@ def print_individuals():
     for indi_id in sortedDict:
         indi = individuals[indi_id]
         age = calculate_age(indi['birthdate'])
+        if indi['birthdate'] == None:
+            indi['birthdate'] = 'NAwww'
         print(f"I{indi_id:<5}{indi['name']:<25}{indi['sex']:<10}{indi['birthdate']:<15}{age:<6}{indi['alive']}{' ' * 4}{indi['deathdate']:<6}{indi['child']:<6}{indi['spouse']:<6}")
-
 
 # print information about families
 def print_families():
     print("Families:")
+    print(f"{'ID':<5}{'Married':<15}{'Divorced':<15}{'Husband ID':<13}{'Husband Name':<30}{'Wife ID':<13}{'Wife Name':<30}{'Children':<15}")
     for fam_id in sorted(families.keys()):
         fam = families[fam_id]
-        husband_name = individuals.get(fam['husband_id'], {}).get('name', 'Unknown')
-        wife_name = individuals.get(fam['wife_id'], {}).get('name', 'Unknown')
-        print(f"ID: {fam_id}, Husband: {husband_name}, Wife: {wife_name}")
+        wife_name, husb_name = "Unknown", "Unknown"
+        if 'HUSB' in fam:
+            husb_name = individuals.get(fam['HUSB'][1:]).get("name", "Unknown")
+        if 'WIFE' in fam:
+            wife_name = individuals.get(fam['WIFE'][1:]).get("name", "Unknown")
+        husb_id = "N/A" if 'HUSB' not in fam else fam['HUSB']
+        wife_id = "N/A" if 'WIFE' not in fam else fam['WIFE']
+        marr_date = "N/A" if 'MARR' not in fam else fam['MARR']
+        div_date = "N/A" if 'DIV' not in fam else fam['DIV']
+        print(f"{fam_id:<5}{marr_date:<15}{div_date:<15}{husb_id:<13}{husb_name:<30}{wife_id:<13}{wife_name:<30}{', '.join(fam['CHIL']):<15}")
 
 # OLD VERSION:
 # print formatted lines to terminal for each line in .gedcom file
@@ -82,7 +93,7 @@ def print_families():
 def parse():
     # These variables are used to populate the individual/family collections
     current_individual = None  # Initialize current_individual
-    current_family = None       # Initialize current_family
+    current_family = {'CHIL': []}       # Initialize current_family
     
     # populate gedContent as a list of all lines from file
     gedContent = None
@@ -119,8 +130,26 @@ def parse():
             current_individual = arguments[0].replace("@", "").replace("I", "")
             add_individual(current_individual)
         elif tag == 'FAM':
-            current_family = arguments[0]
-        elif tag in ['NAME', 'SEX', 'DATE', 'DEAT', 'FAMC', 'FAMS']:
+            if 'FAM' in current_family:
+                families[current_family['FAM']] = current_family
+                current_family = {'CHIL': []}
+            current_family[tag] = arguments[0].replace("@", "")
+        elif tag in ['HUSB', 'WIFE']:
+            current_family[tag] = arguments[0].replace("@", "")
+        elif tag in ['MARR', 'DIV']:
+            current_family[tag] = "empty"
+        elif tag == 'DATE':
+            if 'MARR' in current_family and current_family['MARR'] == "empty":
+                current_family['MARR'] = (" ".join(arguments))
+            elif 'DIV' in current_family and current_family['DIV'] == "empty":
+                current_family['DIV'] = (" ".join(arguments))
+            # checking if indi_id is None or not. if it is NONE, it means it is unitialized and we ignore it.
+            else:
+                if current_individual:
+                    update_individual(current_individual, tag, (" ".join(arguments)).replace("@", ""))
+        elif tag == 'CHIL':
+            current_family[tag].append(arguments[0].replace("@", ""))
+        elif tag in ['NAME', 'SEX', 'DEAT', 'FAMC', 'FAMS']:
             if current_individual:
                 update_individual(current_individual, tag, (" ".join(arguments)).replace("@", ""))
 
@@ -133,6 +162,11 @@ def parse():
 def main():
     parse()
     print_individuals()
+    # print(families.keys()) # checking the keys to ensure they got added to the dictionary
+    # print(families.items()) # checking the items to ensure they got added to the dictionary
+
     print_families()
+
+
 
 main()
