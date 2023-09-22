@@ -1,26 +1,42 @@
 Individuals:
-ID   Name                     Gender    Birthday       Age   Alive Death Child Spouse
-I1    Jesal /Gandhi/           M         3 JAN 2003     20    True    NA    F1    NA    
-I2    Paresh /Gandhi/          M         23 FEB 1970    53    True    NA    F2    F1    
-I3    Mamta /Gandhi/           F         28 JUL 1969    54    True    NA    F3    F1    
-I4    Fenny /Gandhi/           F         26 OCT 1998    24    True    NA    F1    NA    
-I5    Arjun /Gandhi/           M         8 MAR 1947     76    True    NA    NA    F4    
-I6    Lakshmi /Maya/           F         10 DEC 1992    30    False    Y     NA    F3    
-I7    Angela /Ratajkowski/     F         3 JUL 1970     53    True    NA    NA    F4    
-I8    Mukesh /Gandhi/          M         8 JAN 1947     76    True    NA    NA    F2    
-I9    Diya /Patel/             F         29 JUN 1945    78    True    NA    NA    F2    
-I10   Michael /Gandhi/         M         8 SEP 2000     23    True    NA    F4    NA    
-I11   Dharmesh /Gandhi/        M         25 FEB 1965    58    True    NA    F2    F7    
-I12   Falguni /Gandhi/         F         7 DEC 1963     59    True    NA    F2    F6    
-I13   Jyoti /Gandhi/           F         1 JAN 1967     56    True    NA    F3    NA    
-I14   Deepika /Gandhi/         F         16 APR 1968    55    True    NA    F3    F9    
-I15   Kesha /Gandhi/           F         16 AUG 1999    24    True    NA    F7    NA    
-I16   Kavya /Gandhi/           F         9 APR 1967     56    True    NA    NA    F7    
-I17   Priyansh /Gandhi/        M         4 OCT 2001     21    True    NA    F7    NA    
-I18   Jay /Gandhi/             M         9 MAY 1969     54    True    NA    NA    F6    
-I19   Ashish /Gandhi/          M         14 NOV 1967    55    True    NA    NA    F8    
-I20   Divyesh /Gandhi/         M         20 NOV 1995    27    True    NA    F8    NA    
-I21   Rohan /Gandhi/           M         3 SEP 1996     27    True    NA    F6    NA    
-I22   Vraj /Gandhi/            M         14 SEP 2002    21    True    NA    F9    NA    
-I23   Ganesh /Gandhi/          M         6 FEB 1971     52    True    NA    NA    F9    
-I24   Shikha /Gandhi/          F         8 OCT 2010     12    True    NA    F9    NA   
++-----+----------------------+--------+-------------+-----+-------+-------+-------+--------+
+|  ID |         Name         | Gender |   Birthday  | Age | Alive | Death | Child | Spouse |
++-----+----------------------+--------+-------------+-----+-------+-------+-------+--------+
+|  I1 |    Jesal /Gandhi/    |   M    |  3 JAN 2003 |  20 |  True |   NA  |   F1  |   NA   |
+|  I2 |   Paresh /Gandhi/    |   M    | 23 FEB 1970 |  53 |  True |   NA  |   F2  |   F1   |
+|  I3 |    Mamta /Gandhi/    |   F    | 28 JUL 1969 |  54 |  True |   NA  |   F3  |   F1   |
+|  I4 |    Fenny /Gandhi/    |   F    | 26 OCT 1998 |  24 |  True |   NA  |   F1  |   NA   |
+|  I5 |    Arjun /Gandhi/    |   M    |  8 MAR 1947 |  76 |  True |   NA  |   NA  |   F4   |
+|  I6 |    Lakshmi /Maya/    |   F    | 10 DEC 1992 |  30 | False |   Y   |   NA  |   F3   |
+|  I7 | Angela /Ratajkowski/ |   F    |  3 JUL 1970 |  53 |  True |   NA  |   NA  |   F4   |
+|  I8 |   Mukesh /Gandhi/    |   M    |  8 JAN 1947 |  76 |  True |   NA  |   NA  |   F2   |
+|  I9 |     Diya /Patel/     |   F    | 29 JUN 1945 |  78 |  True |   NA  |   NA  |   F2   |
+| I10 |   Michael /Gandhi/   |   M    |  8 SEP 2000 |  23 |  True |   NA  |   F4  |   NA   |
+| I11 |  Dharmesh /Gandhi/   |   M    | 25 FEB 1965 |  58 |  True |   NA  |   F2  |   F7   |
+| I12 |   Falguni /Gandhi/   |   F    |  7 DEC 1963 |  59 |  True |   NA  |   F2  |   F6   |
+| I13 |    Jyoti /Gandhi/    |   F    |  1 JAN 1967 |  56 |  True |   NA  |   F3  |   NA   |
+| I14 |   Deepika /Gandhi/   |   F    | 16 APR 1968 |  55 |  True |   NA  |   F3  |   F9   |
+| I15 |    Kesha /Gandhi/    |   F    | 16 AUG 1999 |  24 |  True |   NA  |   F7  |   NA   |
+| I16 |    Kavya /Gandhi/    |   F    |  9 APR 1967 |  56 |  True |   NA  |   NA  |   F7   |
+| I17 |  Priyansh /Gandhi/   |   M    |  4 OCT 2001 |  21 |  True |   NA  |   F7  |   NA   |
+| I18 |     Jay /Gandhi/     |   M    |  9 MAY 1969 |  54 |  True |   NA  |   NA  |   F6   |
+| I19 |   Ashish /Gandhi/    |   M    | 14 NOV 1967 |  55 |  True |   NA  |   NA  |   F8   |
+| I20 |   Divyesh /Gandhi/   |   M    | 20 NOV 1995 |  27 |  True |   NA  |   F8  |   NA   |
+| I21 |    Rohan /Gandhi/    |   M    |  3 SEP 1996 |  27 |  True |   NA  |   F6  |   NA   |
+| I22 |    Vraj /Gandhi/     |   M    | 14 SEP 2002 |  21 |  True |   NA  |   F9  |   NA   |
+| I23 |   Ganesh /Gandhi/    |   M    |  6 FEB 1971 |  52 |  True |   NA  |   NA  |   F9   |
+| I24 |   Shikha /Gandhi/    |   F    | 31 JUL 1997 |  26 |  True |   NA  |   F9  |   NA   |
++-----+----------------------+--------+-------------+-----+-------+-------+-------+--------+
+Families:
++----+-------------+------------+------------+-------------------+---------+----------------------+--------------+
+| ID |   Married   |  Divorced  | Husband ID |    Husband Name   | Wife ID |      Wife Name       |   Children   |
++----+-------------+------------+------------+-------------------+---------+----------------------+--------------+
+| F1 | 25 MAR 1990 |    N/A     |     I2     |  Paresh /Gandhi/  |    I3   |    Mamta /Gandhi/    |    I1, I4    |
+| F2 |  1 MAR 1969 |    N/A     |     I8     |  Mukesh /Gandhi/  |    I9   |     Diya /Patel/     | I2, I11, I12 |
+| F3 | 10 MAY 1968 |    N/A     |     I5     |   Arjun /Gandhi/  |    I6   |    Lakshmi /Maya/    | I3, I13, I14 |
+| F4 | 15 JAN 1999 |    N/A     |     I5     |   Arjun /Gandhi/  |    I7   | Angela /Ratajkowski/ |     I10      |
+| F5 |  6 APR 2019 |    N/A     |    I19     |  Ashish /Gandhi/  |   I12   |   Falguni /Gandhi/   |      NA      |
+| F6 |  1 JUL 1993 | 8 OCT 2010 |    I18     |    Jay /Gandhi/   |   I12   |   Falguni /Gandhi/   |     I21      |
+| F7 |     N/A     |    N/A     |    I11     | Dharmesh /Gandhi/ |   I16   |    Kavya /Gandhi/    |   I15, I17   |
+| F8 |     N/A     |    N/A     |    I19     |  Ashish /Gandhi/  |   N/A   |       Unknown        |     I20      |
++----+-------------+------------+------------+-------------------+---------+----------------------+--------------+
