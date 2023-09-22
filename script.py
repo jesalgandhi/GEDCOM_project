@@ -6,8 +6,13 @@ M2.B3: Assignment: Project 2 - GEDCOM data
 '''
 import collections
 from datetime import * 
+from prettytable import PrettyTable
 
+individuals_table = PrettyTable()
+individuals_table.field_names = ["ID", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
 
+families_table = PrettyTable()
+families_table.field_names = ["ID", "Married", "Divorced", "Husband ID", "Husband Name", "Wife ID", "Wife Name", "Children"]
 
 supported_tags = [
     'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 
@@ -56,19 +61,23 @@ def calculate_age(birthdate):
 # print information about individuals
 def print_individuals():
     sortedDict = collections.OrderedDict(sorted(individuals.items(), key=lambda x: int(x[0])))
-    print("Individuals:")
-    print(f"{'ID':<5}{'Name':<25}{'Gender':<10}{'Birthday':<15}{'Age':<6}{'Alive':<6}{'Death':<6}{'Child':<6}{'Spouse':<6}")
+    # print("Individuals:")
+    # print(f"{'ID':<5}{'Name':<25}{'Gender':<10}{'Birthday':<15}{'Age':<6}{'Alive':<6}{'Death':<6}{'Child':<6}{'Spouse':<6}")
     for indi_id in sortedDict:
         indi = individuals[indi_id]
         age = calculate_age(indi['birthdate'])
-        if indi['birthdate'] == None:
-            indi['birthdate'] = 'NAwww'
-        print(f"I{indi_id:<5}{indi['name']:<25}{indi['sex']:<10}{indi['birthdate']:<15}{age:<6}{indi['alive']}{' ' * 4}{indi['deathdate']:<6}{indi['child']:<6}{indi['spouse']:<6}")
+        # if indi['birthdate'] == None:
+            # indi['birthdate'] = 'error'
+        # print(f"I{indi_id:<5}{indi['name']:<25}{indi['sex']:<10}{indi['birthdate']:<15}{age:<6}{indi['alive']}{' ' * 4}{indi['deathdate']:<6}{indi['child']:<6}{indi['spouse']:<6}")
+        individuals_table.add_row(["I"+indi_id, indi['name'], indi['sex'], indi['birthdate'], age, indi['alive'], indi['deathdate'], indi['child'], indi['spouse']])
+
+    print("Individuals:")
+    print(individuals_table)
 
 # print information about families
 def print_families():
-    print("Families:")
-    print(f"{'ID':<5}{'Married':<15}{'Divorced':<15}{'Husband ID':<13}{'Husband Name':<30}{'Wife ID':<13}{'Wife Name':<30}{'Children':<15}")
+    # print("Families:")
+    # print(f"{'ID':<5}{'Married':<15}{'Divorced':<15}{'Husband ID':<13}{'Husband Name':<30}{'Wife ID':<13}{'Wife Name':<30}{'Children':<15}")
     for fam_id in sorted(families.keys()):
         fam = families[fam_id]
         wife_name, husb_name = "Unknown", "Unknown"
@@ -80,7 +89,14 @@ def print_families():
         wife_id = "N/A" if 'WIFE' not in fam else fam['WIFE']
         marr_date = "N/A" if 'MARR' not in fam else fam['MARR']
         div_date = "N/A" if 'DIV' not in fam else fam['DIV']
-        print(f"{fam_id:<5}{marr_date:<15}{div_date:<15}{husb_id:<13}{husb_name:<30}{wife_id:<13}{wife_name:<30}{', '.join(fam['CHIL']):<15}")
+        # print(f"{fam_id:<5}{marr_date:<15}{div_date:<15}{husb_id:<13}{husb_name:<30}{wife_id:<13}{wife_name:<30}{', '.join(fam['CHIL']):<15}")
+        children = ', '.join(fam['CHIL'])
+        if len(children):
+            families_table.add_row([fam_id, marr_date, div_date, husb_id, husb_name, wife_id, wife_name, children])
+        else:
+            families_table.add_row([fam_id, marr_date, div_date, husb_id, husb_name, wife_id, wife_name, "NA"])
+    print("Families:")
+    print(families_table)
 
 # OLD VERSION:
 # print formatted lines to terminal for each line in .gedcom file
@@ -161,11 +177,14 @@ def parse():
 
 def main():
     parse()
+
     print_individuals()
+
     # print(families.keys()) # checking the keys to ensure they got added to the dictionary
     # print(families.items()) # checking the items to ensure they got added to the dictionary
-
+    
     print_families()
+    
 
 
 
