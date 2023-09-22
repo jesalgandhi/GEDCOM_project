@@ -7,6 +7,8 @@ M2.B3: Assignment: Project 2 - GEDCOM data
 import collections
 from datetime import * 
 
+
+
 supported_tags = [
     'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 
     'WIFE', 'CHIL', 'DIV', 'DATE', 'HEAD', 'TRLR', 'NOTE'
@@ -59,6 +61,8 @@ def print_individuals():
     for indi_id in sortedDict:
         indi = individuals[indi_id]
         age = calculate_age(indi['birthdate'])
+        if indi['birthdate'] == None:
+            indi['birthdate'] = 'NAwww'
         print(f"I{indi_id:<5}{indi['name']:<25}{indi['sex']:<10}{indi['birthdate']:<15}{age:<6}{indi['alive']}{' ' * 4}{indi['deathdate']:<6}{indi['child']:<6}{indi['spouse']:<6}")
 
 # print information about families
@@ -139,9 +143,13 @@ def parse():
                 current_family['MARR'] = (" ".join(arguments))
             elif 'DIV' in current_family and current_family['DIV'] == "empty":
                 current_family['DIV'] = (" ".join(arguments))
+            # checking if indi_id is None or not. if it is NONE, it means it is unitialized and we ignore it.
+            else:
+                if current_individual:
+                    update_individual(current_individual, tag, (" ".join(arguments)).replace("@", ""))
         elif tag == 'CHIL':
             current_family[tag].append(arguments[0].replace("@", ""))
-        elif tag in ['NAME', 'SEX', 'DATE', 'DEAT', 'FAMC', 'FAMS']:
+        elif tag in ['NAME', 'SEX', 'DEAT', 'FAMC', 'FAMS']:
             if current_individual:
                 update_individual(current_individual, tag, (" ".join(arguments)).replace("@", ""))
 
@@ -154,6 +162,11 @@ def parse():
 def main():
     parse()
     print_individuals()
+    # print(families.keys()) # checking the keys to ensure they got added to the dictionary
+    # print(families.items()) # checking the items to ensure they got added to the dictionary
+
     print_families()
+
+
 
 main()
