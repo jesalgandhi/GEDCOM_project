@@ -7,6 +7,7 @@ M2.B3: Assignment: Project 2 - GEDCOM data
 import collections
 from datetime import * 
 from prettytable import PrettyTable
+import sys
 
 individuals_table = PrettyTable()
 individuals_table.field_names = ["ID", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
@@ -113,7 +114,13 @@ def parse():
     
     # populate gedContent as a list of all lines from file
     gedContent = None
-    with open("test_file.ged", "r") as ged:
+
+    # make sure a gedcome file is inputted
+    if len(sys.argv) != 2 or sys.argv[1][-3:] != "ged":
+        raise Exception("Sorry, can only input gedcom file as command line input")
+
+    file = sys.argv[1]
+    with open(file, "r") as ged:
         gedContent = [line.strip() for line in ged]
 
     # loop through arguments for each line
@@ -168,6 +175,9 @@ def parse():
         elif tag in ['NAME', 'SEX', 'DEAT', 'FAMC', 'FAMS']:
             if current_individual:
                 update_individual(current_individual, tag, (" ".join(arguments)).replace("@", ""))
+        
+    if "FAM" in current_family:
+        families[current_family['FAM']] = current_family
 
         
         # OLD VERSION:
