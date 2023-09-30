@@ -43,10 +43,13 @@ def update_individual(indi_id, tag, value):
     elif tag == 'SEX':
         indi['sex'] = value
     elif tag == 'DATE':
-        indi['birthdate'] = value
+        if indi['birthdate'] != None:
+            indi['deathdate'] = value
+        else:
+            indi['birthdate'] = value
     elif tag == 'DEAT':
         indi['alive'] = False
-        indi['deathdate'] = value
+        # indi['deathdate'] = value
     elif tag == 'FAMC':
         indi['child'] = value
     elif tag == 'FAMS':
