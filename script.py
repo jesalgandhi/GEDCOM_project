@@ -8,6 +8,8 @@ import collections
 from datetime import * 
 from prettytable import PrettyTable
 import sys
+import subprocess
+
 
 individuals_table = PrettyTable()
 individuals_table.field_names = ["ID", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
@@ -99,12 +101,7 @@ def print_families():
     print("Families:")
     print(families_table)
 
-# OLD VERSION:
-# print formatted lines to terminal for each line in .gedcom file
-# def print_line(level_num, tag_id, valid_val, args):
-#     concatArgs = ' '.join(args)
-#     print(f"--> {level_num} {tag_id} {concatArgs}")
-#     print(f"<-- {level_num}|{tag_id}|{valid_val}|{concatArgs}")
+
 
 # parse thru each line, then each word, of the file
 def parse():
@@ -185,6 +182,7 @@ def parse():
         # print_line(level, tag, valid, arguments)
 
 
+
 def main():
     parse()
 
@@ -197,5 +195,6 @@ def main():
     
 
 
-
-main()
+if __name__ == "__main__":
+    main()
+    subprocess.run(["python", "./sprints/sprint1.py", sys.argv[1]])
