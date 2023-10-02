@@ -1,0 +1,6 @@
+ERROR: INDIVIDUAL: US03: I6: Birthday 13 AUG 1993 occurs after death date 10 DEC 1992
+ERROR: INDIVIDUAL: US05: I6: Marriage date 10 MAY 2968 occurs after death date 10 DEC 1992
+ERROR: INDIVIDUAL: US02: I18: Birth date 9 MAY 1969 occurs after marriage date 1 JUL 1893
+ERROR: INDIVIDUAL: US02: I12: Birth date 23 FEB 1970 occurs after marriage date 1 JUL 1893
+ERROR: INDIVIDUAL: US23: I20: there already exists a person with name: Jesal /Gandhi/ and birthday: 3 JAN 2003
+ERROR: INDIVIDUAL: US07: I14: Deepika /Gandhi/ is 150 years old or older, that is not allowed.

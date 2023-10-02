@@ -123,24 +123,20 @@ def sprint1():
                     print(f"ERROR: INDIVIDUAL: US02: {wife_id}: Birth date {wife_birthdate} occurs after marriage date {marriage_date}")
 
     def US23():
-        names = []
-        birthdates = []
+        names = {}
         for indi in script.individuals:
-            name = script.individuals[indi]["name"].split(" ")[0]
+            name = script.individuals[indi]["name"]
             birthdate = script.individuals[indi]["birthdate"]
-            if name in names:
-                print(f"ERROR: {name} doesn't have a unique name")
-            elif birthdate in birthdates:
-                print(f"ERROR: {name} doesn't have a unique birthday")
-            names.append(name)
-            birthdates.append(birthdate)
+            if name in names and names[name] == birthdate:
+                print(f"ERROR: INDIVIDUAL: US23: I{indi}: there already exists a person with name: {name} and birthday: {birthdate}")
+            names[name] = birthdate
 
     def US07():
         for indi in script.individuals:
             name = script.individuals[indi]["name"]
             birthdate = script.individuals[indi]["birthdate"]
             if script.calculate_age(birthdate) >= 150:
-                print(f"ERROR: {name} is 150 years or older, that is not allowed.")
+                print(f"ERROR: INDIVIDUAL: US07: I{indi}: {name} is 150 years old or older, that is not allowed.")
 
     # call your US## here:
     US03()
