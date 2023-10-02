@@ -122,6 +122,8 @@ def sprint1():
                 if wife_birth > marriage:
                     print(f"ERROR: INDIVIDUAL: US02: {wife_id}: Birth date {wife_birthdate} occurs after marriage date {marriage_date}")
 
+    # Ajit Kandasamy
+    # US23: Unique name and birth date: WORKING
     def US23():
         names = {}
         for indi in script.individuals:
@@ -131,6 +133,8 @@ def sprint1():
                 print(f"ERROR: INDIVIDUAL: US23: I{indi}: there already exists a person with name: {name} and birthday: {birthdate}")
             names[name] = birthdate
 
+    # Ajit Kandasamy
+    # US07: Less then 150 years old: WORKING
     def US07():
         for indi in script.individuals:
             name = script.individuals[indi]["name"]
