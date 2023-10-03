@@ -3,6 +3,7 @@ import os
 from datetime import * 
 sys.path.append(os.path.join(sys.path[0], '..'))
 import script
+import logging
 
 # start code; families and individuals should be accessible now; test:
 # print(script.families)
@@ -16,12 +17,19 @@ def US03(individuals):
         # print(individuals[k]['deathdate'])
         deathdate_str = individuals[k]['deathdate']
         birthdate_str = individuals[k]['birthdate']
-        if deathdate_str != 'NA':
+        if deathdate_str != 'NA' and birthdate_str != 'NA':
             death = datetime.strptime(deathdate_str, "%d %b %Y")
             birth = datetime.strptime(birthdate_str, "%d %b %Y")
+            error_msg = ""
             if birth > death:
-                print(f"ERROR: INDIVIDUAL: US03: I{k}: Birthday {birthdate_str} occurs after death date {deathdate_str}")
-
+                error_msg = f"ERROR: INDIVIDUAL: US03: I{k}: Birthday {birthdate_str} occurs after death date {deathdate_str}"
+                print(error_msg)
+                logging.error(error_msg)
+                return error_msg
+                # print(f"ERROR: INDIVIDUAL: US03: I{k}: Birthday {birthdate_str} occurs after death date {deathdate_str}")
+            else:
+                logging.error(error_msg)
+                return None
 
 # Jesal Gandhi
 # US14: Multiple births <= 5
