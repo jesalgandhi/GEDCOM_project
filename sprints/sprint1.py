@@ -79,17 +79,31 @@ def US05(individuals, families):
                 if indi['name'] == wife_name:
                     wife_deathdate = indi['deathdate']
 
+            
+            error_msg = ""
             if husb_deathdate != 'NA':
                 marriage = datetime.strptime(marriage_date, "%d %b %Y")
                 death = datetime.strptime(husb_deathdate, "%d %b %Y")
                 if marriage > death:
-                    print(f"ERROR: INDIVIDUAL: US05: {husb_id}: Marriage date {marriage_date} occurs after death date {husb_deathdate}")
+                    error_msg = f"ERROR: INDIVIDUAL: US05: {husb_id}: Marriage date {marriage_date} occurs after death date {husb_deathdate}"
+                    print(error_msg)
+                    logging.error(error_msg)
+                    return error_msg
+                else:
+                    logging.error(error_msg)
+                    return None
 
             if wife_deathdate != 'NA':
                 marriage = datetime.strptime(marriage_date, "%d %b %Y")
                 death = datetime.strptime(wife_deathdate, "%d %b %Y")
                 if marriage > death:
-                    print(f"ERROR: INDIVIDUAL: US05: {wife_id}: Marriage date {marriage_date} occurs after death date {wife_deathdate}")
+                    error_msg = f"ERROR: INDIVIDUAL: US05: {wife_id}: Marriage date {marriage_date} occurs after death date {wife_deathdate}"
+                    print(error_msg)
+                    logging.error(error_msg)
+                    return error_msg
+                else:
+                    logging.error(error_msg)
+                    return None
 
 
 # Dhihan Ahmed
