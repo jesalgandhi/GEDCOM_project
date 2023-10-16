@@ -118,6 +118,35 @@ def US10(individuals, families):
                 print(f"ERROR: FAMILY: US10: {fam}: Both wife and husband must be at least 14 years old")
 
 
+# Jesal Gandhi
+# US29: List deceased
+def US29(individuals):
+    for individual in individuals:
+        obj = individuals[individual]
+        if obj['deathdate'] != 'NA':
+            print(f"DEATH: INDIVIDUAL: US29: I{individual}: Individual {obj['name']} died on {obj['deathdate']}")
+
+
+# Jesal Gandhi
+# US06: Divorce before death
+def US06(individuals, families):
+    for fam in families:
+        obj = families[fam]
+        divorce_date = None
+        if 'DIV' in obj.keys():
+            divorce_date = datetime.strptime(obj['DIV'], "%d %b %Y")
+            husb = individuals[obj['HUSB'][1:]]
+            wife = individuals[obj['WIFE'][1:]]
+            if (husb['deathdate'] != 'NA'):
+                husb_death = datetime.strptime(husb['deathdate'], "%d %b %Y")
+                if (husb_death < divorce_date):
+                    print(f"ERROR: FAMILY: US06: {fam}: Divorce occurs after husband {husb['name']}'s death")
+            elif (wife['deathdate'] != 'NA'):
+                wife_death = datetime.strptime(wife['deathdate'], "%d %b %Y")
+                if (wife_death < divorce_date):
+                    print(f"ERROR: FAMILY: US06: {fam}: Divorce occurs after wife {wife['name']}'s death")
+
+
 
 def sprint2():
     # call your US## here:
@@ -135,6 +164,9 @@ def sprint2():
 
     US36(script.individuals)
     US10(script.individuals, script.families)
+
+    US29(script.individuals)
+    US06(script.individuals, script.families)
 
 
 
