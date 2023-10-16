@@ -3,6 +3,7 @@ import os
 from datetime import * 
 sys.path.append(os.path.join(sys.path[0], '..'))
 import script
+import logging
 
 # Dhihan Ahmed
 # helper function used for US42: checks if date is legitmate or not
@@ -121,10 +122,16 @@ def US10(individuals, families):
 # Jesal Gandhi
 # US29: List deceased
 def US29(individuals):
+    deaths = 0
     for individual in individuals:
         obj = individuals[individual]
         if obj['deathdate'] != 'NA':
-            print(f"DEATH: INDIVIDUAL: US29: I{individual}: Individual {obj['name']} died on {obj['deathdate']}")
+            error_msg = f"DEATH: INDIVIDUAL: US29: I{individual}: Individual {obj['name']} died on {obj['deathdate']}"
+            logging.error(error_msg)
+            deaths += 1
+            print(error_msg)
+    if deaths == 0:
+        logging.error("")
 
 
 # Jesal Gandhi
