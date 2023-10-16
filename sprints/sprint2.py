@@ -82,6 +82,43 @@ def US42(individuals, families):
             if not date_checker(marr_date):
                 print(f"ERROR: FAMILY: US42: {fam_id}: Marriage date {marr_date} is not a legitimate date.")
 
+def time_passed(deathdate):
+    if deathdate:
+        today = datetime.today()
+        death_date = datetime.strptime(deathdate, "%d %b %Y")
+        return (today - death_date).days
+    return 'NA'
+
+
+def US36(individuals):
+    recent_deaths = []
+    print("RECENT DEATHS")
+    print("----------------------------------------------")
+    for indi in individuals:
+        obj = individuals[indi]
+        if obj["deathdate"] != "NA" and time_passed(obj["deathdate"]) < 30:
+            recent_deaths += [indi]
+            print(obj)
+    print("----------------------------------------------")
+        
+def US10(individuals, families):
+    illegal_marriages = []
+    for fam in families:
+        if 'WIFE' in families[fam]:
+            wife_id = families[fam]['WIFE'][1:]
+            wife_birth = individuals[wife_id]['birthdate']
+            if script.calculate_age(wife_birth) < 14:
+                illegal_marriages += [fam]
+                print(f"ERROR: FAMILY: US10: {fam}: Both wife and husband must be at least 14 years old")
+        if 'HUSB' in families[fam]:
+            husb_id = families[fam]['HUSB'][1:]
+            husb_birth = individuals[husb_id]['birthdate']
+            if script.calculate_age(husb_birth) < 14:
+                illegal_marriages += [fam]
+                print(f"ERROR: FAMILY: US10: {fam}: Both wife and husband must be at least 14 years old")
+
+
+
 def sprint2():
     # call your US## here:
     script.parse() # DO NOT DELETE
@@ -96,10 +133,9 @@ def sprint2():
     US28(script.individuals, script.families)
     US42(script.individuals, script.families)
 
+    US36(script.individuals)
+    US10(script.individuals, script.families)
+
 
 
 sprint2()
-
-
-                
-

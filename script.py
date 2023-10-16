@@ -1,6 +1,6 @@
 '''
 Jesal Gandhi, Dhihan Ahmed, Ajit Kandasamy
-Professor Ens
+Professor Ensx
 I pledge my honor that I have abided by the Stevens Honor System.
 M2.B3: Assignment: Project 2 - GEDCOM data
 '''

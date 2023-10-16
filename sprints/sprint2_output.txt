@@ -1,0 +1,2 @@
+ERROR: FAMILY: US10: F1: Both wife and husband must be at least 14 years old
+ERROR: FAMILY: US10: F7: Both wife and husband must be at least 14 years old
