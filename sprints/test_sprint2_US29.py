@@ -15,7 +15,6 @@ class TestUS29(unittest.TestCase):
         print(log.output)
 
         self.assertEqual(len(log.output), 2)
-        # self.assertTrue(all(f"DEATH: INDIVIDUAL: US29: I{i}: Individual died on" in log.output[log_line] for i, log_line in enumerate(range(len(log.output))))
 
     def test_deathdate_missing(self):
         individuals = {
@@ -40,7 +39,6 @@ class TestUS29(unittest.TestCase):
             sprint2.US29(individuals)
 
         self.assertEqual(len(log.output), 3)
-        # self.assertTrue(all(f"DEATH: INDIVIDUAL: US29: I{i + 1}: Individual died on" in log.output[log_line] for i, log_line in enumerate(range(len(log.output))))
 
     def test_no_individuals(self):
         individuals = {}
