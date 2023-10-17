@@ -8,10 +8,7 @@ F6's children listed in decreasing age order: | I21, Age: 27 |
 F7's children listed in decreasing age order: | I15, Age: 24 | | I17, Age: 22 | 
 F8's children listed in decreasing age order: | I20, Age: 20 | 
 F9's children listed in decreasing age order: | I24, Age: 26 | | I22, Age: 21 | 
-RECENT DEATHS
-----------------------------------------------
-{'name': 'Lakshmi /Maya/', 'sex': 'F', 'birthdate': '13 AUG 1993', 'alive': False, 'deathdate': '18 SEP 2023', 'child': 'NA', 'spouse': 'F3'}
-----------------------------------------------
+RECENT DEATH: INDIVIDUAL: US29: I6: Individual Lakshmi /Maya/ died on 18 SEP 2023
 ERROR: FAMILY: US10: F1: Both wife and husband must be at least 14 years old
 ERROR: FAMILY: US10: F7: Both wife and husband must be at least 14 years old
 DEATH: INDIVIDUAL: US29: I6: Individual Lakshmi /Maya/ died on 18 SEP 2023

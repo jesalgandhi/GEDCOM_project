@@ -90,18 +90,19 @@ def time_passed(deathdate):
         return (today - death_date).days
     return 'NA'
 
-
+#Ajit Kandasamy
+#recent deaths
 def US36(individuals):
     recent_deaths = []
-    print("RECENT DEATHS")
-    print("----------------------------------------------")
     for indi in individuals:
         obj = individuals[indi]
         if obj["deathdate"] != "NA" and time_passed(obj["deathdate"]) < 30:
             recent_deaths += [indi]
-            print(obj)
-    print("----------------------------------------------")
-        
+            print(f"RECENT DEATH: INDIVIDUAL: US29: I{indi}: Individual {obj['name']} died on {obj['deathdate']}") 
+    return recent_deaths if recent_deaths != [] else None
+    
+
+#US10 illegal marriages
 def US10(individuals, families):
     illegal_marriages = []
     for fam in families:
@@ -117,7 +118,7 @@ def US10(individuals, families):
             if script.calculate_age(husb_birth) < 14:
                 illegal_marriages += [fam]
                 print(f"ERROR: FAMILY: US10: {fam}: Both wife and husband must be at least 14 years old")
-
+    return illegal_marriages
 
 # Jesal Gandhi
 # US29: List deceased
