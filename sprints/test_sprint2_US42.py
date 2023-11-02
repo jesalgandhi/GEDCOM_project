@@ -14,11 +14,10 @@ class TestUS42(unittest.TestCase):
             'I2': {'birthdate': '29 FEB 1980', 'deathdate': '15 MAR 2015', 'chilren': 'I1'}
         }
 
-        result = sprint2.US42(script.individuals, script.families)
 
         # print(log.output)
 
-        self.assertEqual(len(individuals) + len(families), 4)
+        self.assertEqual(sprint2.US42(script.individuals, script.families), None)
 
     def more_illegitimate_dates(self):
         individuals = {
@@ -29,11 +28,10 @@ class TestUS42(unittest.TestCase):
             'I1': {'birthdate': '92 JAN 1999', 'deathdate': '01 JAN 2020', 'chilren': ''}
         }
 
-        result = sprint2.US42(script.individuals, script.families)
 
         # print(log.output)
 
-        self.assertEqual(len(individuals) + len(families), 3)
+        self.assertEqual(sprint2.US42(script.individuals, script.families), None)
 
     def no_illegitimate_dates(self):
         individuals = {
@@ -45,11 +43,11 @@ class TestUS42(unittest.TestCase):
             'I1': {'birthdate': '23 JAN 2019', 'deathdate': '01 JAN 2020', 'children': ''}
         }
 
-        result = sprint2.US42(script.individuals, script.families)
+
 
         # print(log.output)
 
-        self.assertEqual(len(individuals) + len(families), 4)
+        self.assertEqual(sprint2.US42(script.individuals, script.families), None)
 
 
 
