@@ -3,3 +3,6 @@ LARGE AGE DIFFERENCE: FAMILY: US10: F1: Both husband and wife have a large age d
 LARGE AGE DIFFERENCE: FAMILY: US10: F2: Both husband and wife have a large age difference
 LARGE AGE DIFFERENCE: FAMILY: US10: F3: Both husband and wife have a large age difference
 LARGE AGE DIFFERENCE: FAMILY: US10: F7: Both husband and wife have a large age difference
+UPCOMING BIRTHDAY: INDIVIDUAL: US38: 19: Ashish /Gandhi/'s birthday is on 14 NOV 1967
+MALE LAST NAMES: FAMILY: US16: F1: Jesal /Yandhi/ does not have the same last name as the rest of his family
+MALE LAST NAMES: FAMILY: US16: F8: Jesal /Yandhi/ does not have the same last name as the rest of his family

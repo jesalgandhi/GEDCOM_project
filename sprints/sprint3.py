@@ -38,19 +38,44 @@ def US34(individuals, families):
                 print(f"LARGE AGE DIFFERENCE: FAMILY: US10: {fam}: Both husband and wife have a large age difference")
     return large_differences
 
+# Jesal Gandhi
+# Male last names  
+def US16(individuals, families):
+    for fam in families:
+        husb = families[fam]['HUSB']
+        temp = individuals[husb[1:]]['name']
+        temp2 = temp.split("/")
+        lastName = temp2[1]
+        for child in families[fam]['CHIL']:
+            key = child[1:]
+            indiChild = individuals[key]
+            temp2 = indiChild['name'].split("/")
+            if indiChild['sex'] == 'M' and temp2[1] != lastName:
+                print(f"MALE LAST NAMES: FAMILY: US16: {fam}: {indiChild['name']} does not have the same last name as the rest of his family")
+
+# Jesal Gandhi
+# List upcoming birthdays  
+def US38(individuals):
+    today = datetime.now()
+    thirty_days = timedelta(days=30)
+    for k in individuals:
+        birthdate_str = individuals[k]['birthdate']
+        name = individuals[k]['name']
+        birth = datetime.strptime(birthdate_str, "%d %b %Y")
+        birth_month_day = (birth.month, birth.day)
+        today_month_day = (today.month, today.day)
+        difference = (datetime(today.year, *birth_month_day) - today).days
+        if 0 <= difference <= 30:
+            print(f"UPCOMING BIRTHDAY: INDIVIDUAL: US38: {k}: {name}'s birthday is on {birthdate_str}")
+
 def sprint3():
     # call your US## here:
     script.parse() # DO NOT DELETE
 
-    # TODO:
-    # both US work, you just cant run both at the same time because an illegitimate date is needed in sprint2_test.ged for US42 to
-    # show up, but simutaneously an illegitimate date throws a wrench in US28 causing the output to error out and not function
-    
-    # to test out each US code on your own:
-    # - make sure there are NO illegitimate dates in sprint2_test.ged when running US28
-    # - make sure there ARE illegitimate dates in sprint2_test.ged when running US42
     US35(script.individuals)
     US34(script.individuals, script.families)
+    US38(script.individuals)
+    US16(script.individuals, script.families)
 
 
 sprint3()

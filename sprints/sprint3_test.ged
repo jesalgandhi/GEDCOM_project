@@ -10,13 +10,13 @@
 2 VERS 5.5.1
 2 FORM LINEAGE-LINKED
 1 SUBM @I1@
-2 NAME Jesal Gandhi
+2 NAME Jesal Yandhi
 1 SUBN
 1 CHAR UTF-8
 0 @I1@ INDI
-1 NAME Jesal /Gandhi/
+1 NAME Jesal /Yandhi/
 2 GIVN Jesal
-2 SURN Gandhi
+2 SURN Yandhi
 2 _MARNM Gandhi
 1 SEX M
 1 BIRT
@@ -197,7 +197,7 @@
 1 FAMS @F5@
 1 FAMS @F8@
 0 @I20@ INDI
-1 NAME Jesal /Gandhi/
+1 NAME Jesal /Yandhi/
 2 GIVN Jesal
 2 SURN Gandhi
 2 _MARNM Gandhi
