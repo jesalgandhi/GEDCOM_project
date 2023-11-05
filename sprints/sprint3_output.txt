@@ -5,4 +5,9 @@ LARGE AGE DIFFERENCE: FAMILY: US10: F3: Both husband and wife have a large age d
 LARGE AGE DIFFERENCE: FAMILY: US10: F7: Both husband and wife have a large age difference
 UPCOMING BIRTHDAY: INDIVIDUAL: US38: 19: Ashish /Gandhi/'s birthday is on 14 NOV 1967
 MALE LAST NAMES: FAMILY: US16: F1: Jesal /Yandhi/ does not have the same last name as the rest of his family
+MALE LAST NAMES: FAMILY: US16: F2: Jesal /Yandhi/ does not have the same last name as the rest of his family
+MALE LAST NAMES: FAMILY: US16: F2: Diya /Patel/ does not have the same last name as the rest of his family
 MALE LAST NAMES: FAMILY: US16: F8: Jesal /Yandhi/ does not have the same last name as the rest of his family
+OVER 15 SIBLINGS: FAMILY: US15: F2 has 15 or more siblings.
+CORRECT GENDER FOR EACH ROLE: FAMILY: US21: Wife I9 Diya /Patel/ is not a female.
+CORRECT GENDER FOR EACH ROLE: FAMILY: US21: Husband I18 Jay /Gandhi/ is not a male.

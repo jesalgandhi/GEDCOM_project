@@ -68,6 +68,39 @@ def US38(individuals):
         if 0 <= difference <= 30:
             print(f"UPCOMING BIRTHDAY: INDIVIDUAL: US38: {k}: {name}'s birthday is on {birthdate_str}")
 
+# Dhihan Ahmed
+# Fewer than 15 siblings
+def US15(families):
+    # iterating over family IDs to check # of children
+    for fam_id in sorted(families.keys()):
+        fam = families[fam_id]
+        children_list = fam['CHIL']
+        # print(children_list)
+        if len(children_list) >= 15:
+            print(f"OVER 15 SIBLINGS: FAMILY: US15: {fam_id} has 15 or more siblings.")
+
+# Dhihan Ahmed
+# Correct gender for each role
+def US21(individuals, families):
+    # iterating over family IDs to check husband/wife IDs
+    for fam_id in sorted(families.keys()):
+        fam = families[fam_id]
+
+        husb_id = "N/A" if 'HUSB' not in fam else fam['HUSB']
+        wife_id = "N/A" if 'WIFE' not in fam else fam['WIFE']
+
+        if husb_id != "N/A" and wife_id != "N/A":
+            for indi in individuals:
+                # print(indi)
+                # print(husb_id)
+                # break
+                if "I"+indi == husb_id:
+                    if individuals[indi]['sex'] != 'M':
+                        print(f"CORRECT GENDER FOR EACH ROLE: FAMILY: US21: Husband {husb_id} {individuals[indi]['name']} is not a male.") 
+                if "I"+indi == wife_id:
+                    if individuals[indi]['sex'] != 'F':
+                        print(f"CORRECT GENDER FOR EACH ROLE: FAMILY: US21: Wife {wife_id} {individuals[indi]['name']} is not a female.") 
+
 def sprint3():
     # call your US## here:
     script.parse() # DO NOT DELETE
@@ -76,6 +109,9 @@ def sprint3():
     US34(script.individuals, script.families)
     US38(script.individuals)
     US16(script.individuals, script.families)
+
+    US15(script.families)
+    US21(script.individuals, script.families)
 
 
 sprint3()
