@@ -1,0 +1,5 @@
+ERROR: FAMILY: US12: F2: at least one of the parents is too old
+ERROR: FAMILY: US12: F3: at least one of the parents is too old
+ERROR: FAMILY: US12: F4: at least one of the parents is too old
+UPCOMING ANIVERSARY: INDIVIDUAL: US39: family F3 has aniversary coming up in 21 days
+UPCOMING ANIVERSARY: INDIVIDUAL: US39: family F5 has aniversary coming up in 7 days
