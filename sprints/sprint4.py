@@ -62,11 +62,50 @@ def US39(families):
                 print(f"UPCOMING ANIVERSARY: INDIVIDUAL: US39: family {fam} has aniversary coming up in {days_remaining} days")
     return upcoming_aniversaries
 
+# Dhihan Ahmed
+# List all living married people
+def US30(individuals):
+    result = []
+    for indi in individuals:
+        if individuals[indi]['deathdate'] == 'NA' and individuals[indi]['spouse'] != 'NA':
+            result.append(individuals[indi]['name'])
+
+    print(f"INDIVIDUALS: US30: LIST OF ALL LIVING MARRIED PEOPLE:")
+    for individual in result:
+        print(f"   - {individual}")
+            
+# calculate age of individual 
+def calculate_age(birthdate):
+    if birthdate:
+        today = datetime.today()
+        birth_date = datetime.strptime(birthdate, "%d %b %Y")
+        age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+        return age
+    return 'NA'
+
+# Dhihan Ahmed
+# List all living people over 30 who have never been married
+def US31(individuals):
+    result = []
+    for indi in individuals:
+        age = calculate_age(individuals[indi]['birthdate'])
+        if age > 30 and individuals[indi]['deathdate'] == 'NA' and individuals[indi]['spouse'] == 'NA':
+            result.append(individuals[indi]['name'])
+
+    if not result:
+        print(f"INDIVIDUALS: US31: THERE ARE NO LIVING PEOPLE OVER 30 WHO HAVE NEVER BEEN MARRIED.")
+    else:
+        print(f"INDIVIDUALS: US31: LIST OF ALL LIVING PEOPLE OVER 30 WHO HAVE NEVER BEEN MARRIED:")
+        for individual in result:
+            print(f"   - {individual}")
+
 def sprint4():
     # call your US## here:
     script.parse() # DO NOT DELETE
     US12(script.families, script.individuals)
     US39(script.families)
+    US30(script.individuals)
+    US31(script.individuals)
 
 
 
