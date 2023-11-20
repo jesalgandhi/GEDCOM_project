@@ -99,6 +99,75 @@ def US31(individuals):
         for individual in result:
             print(f"   - {individual}")
 
+
+
+def calculate_age(birthdate):
+    if birthdate:
+        today = datetime.today()
+        birth_date = datetime.strptime(birthdate, "%d %b %Y")
+        age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+        return age
+    return 'NA'
+
+def calculate_age_months(birthdate):
+    if birthdate:
+        today = datetime.today()
+        birth_date = datetime.strptime(birthdate, "%d %b %Y")
+
+        # Calculate age in months
+        age_in_months = (today.year - birth_date.year) * 12 + today.month - birth_date.month
+
+        # Adjust if the birth day is later in the month than today's day
+        if today.day < birth_date.day:
+            age_in_months -= 1
+
+        return age_in_months
+    return 'NA'
+
+def calculate_days_between_dates(date1, date2):
+    try:
+        # Convert date strings to datetime objects
+        date1_obj = datetime.strptime(date1, "%d %b %Y")
+        date2_obj = datetime.strptime(date2, "%d %b %Y")
+
+        # Calculate the difference between the two dates
+        days_difference = abs((date2_obj - date1_obj).days)
+
+        return days_difference
+    except ValueError:
+        # Handle invalid date format
+        return 'Invalid date format'
+
+# Jesal Gandhi
+# Include person's current age when listing individuals
+def US27(individuals):
+    for k, person in individuals.items():
+        age = calculate_age(person['birthdate'])
+        if age == 0:
+            age = calculate_age_months(person['birthdate'])
+            print(f"US27: INDIVIDUAL: {person['name']}: AGE: {age} months old")
+        else:
+            print(f"US27: INDIVIDUAL: {person['name']}: AGE: {age} years old")
+
+# Jesal Gandhi
+# Birth dates of siblings should be more than 8 months apart or less than 2 days apart 
+# (twins may be born one day apart, e.g. 11:59 PM and 12:02 AM the following calendar day)
+def US13(families, individuals):
+    for k, fam in families.items():
+        children = fam['CHIL']
+        if len(children) < 2:
+            continue
+        for i in range(len(children)):
+            for j in range(1, len(children)):
+                indi_id_1 = children[i][1:]
+                indi_id_2 = children[j][1:]
+                distance = calculate_days_between_dates(individuals[indi_id_1]['birthdate'], individuals[indi_id_2]['birthdate'])
+                if distance > 2 and distance < 240:
+                    print(f"US13: ERROR: FAMILY: {individuals[indi_id_1]['name']} and {individuals[indi_id_2]['name']} have birthdates {distance} days apart")
+
+
+
+
 def sprint4():
     # call your US## here:
     script.parse() # DO NOT DELETE
@@ -106,6 +175,9 @@ def sprint4():
     US39(script.families)
     US30(script.individuals)
     US31(script.individuals)
+    US27(script.individuals)
+    US13(script.families, script.individuals)
+
 
 
 

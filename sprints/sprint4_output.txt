@@ -1,5 +1,49 @@
 ERROR: FAMILY: US12: F2: at least one of the parents is too old
 ERROR: FAMILY: US12: F3: at least one of the parents is too old
 ERROR: FAMILY: US12: F4: at least one of the parents is too old
-UPCOMING ANIVERSARY: INDIVIDUAL: US39: family F3 has aniversary coming up in 21 days
-UPCOMING ANIVERSARY: INDIVIDUAL: US39: family F5 has aniversary coming up in 7 days
+UPCOMING ANIVERSARY: INDIVIDUAL: US39: family F3 has aniversary coming up in 20 days
+UPCOMING ANIVERSARY: INDIVIDUAL: US39: family F5 has aniversary coming up in 6 days
+INDIVIDUALS: US30: LIST OF ALL LIVING MARRIED PEOPLE:
+   - Paresh /Gandhi/
+   - Mamta /Gandhi/
+   - Arjun /Gandhi/
+   - Angela /Ratajkowski/
+   - Mukesh /Gandhi/
+   - Diya /Patel/
+   - Dharmesh /Gandhi/
+   - Falguni /Gandhi/
+   - Deepika /Gandhi/
+   - Kavya /Gandhi/
+   - Ashish /Gandhi/
+   - Ganesh /Gandhi/
+INDIVIDUALS: US31: LIST OF ALL LIVING PEOPLE OVER 30 WHO HAVE NEVER BEEN MARRIED:
+   - Jyoti /Gandhi/
+US27: INDIVIDUAL: Jesal /Yandhi/: AGE: 20 years old
+US27: INDIVIDUAL: Paresh /Gandhi/: AGE: 53 years old
+US27: INDIVIDUAL: Mamta /Gandhi/: AGE: 12 years old
+US27: INDIVIDUAL: Fenny /Gandhi/: AGE: 25 years old
+US27: INDIVIDUAL: Arjun /Gandhi/: AGE: 176 years old
+US27: INDIVIDUAL: Lakshmi /Maya/: AGE: 30 years old
+US27: INDIVIDUAL: Angela /Ratajkowski/: AGE: 53 years old
+US27: INDIVIDUAL: Mukesh /Gandhi/: AGE: 223 years old
+US27: INDIVIDUAL: Diya /Patel/: AGE: 78 years old
+US27: INDIVIDUAL: Michael /Gandhi/: AGE: 23 years old
+US27: INDIVIDUAL: Dharmesh /Gandhi/: AGE: 53 years old
+US27: INDIVIDUAL: Falguni /Gandhi/: AGE: 53 years old
+US27: INDIVIDUAL: Jyoti /Gandhi/: AGE: 53 years old
+US27: INDIVIDUAL: Deepika /Gandhi/: AGE: 53 years old
+US27: INDIVIDUAL: Kesha /Gandhi/: AGE: 24 years old
+US27: INDIVIDUAL: Kavya /Gandhi/: AGE: 1 months old
+US27: INDIVIDUAL: Priyansh /Gandhi/: AGE: 22 years old
+US27: INDIVIDUAL: Jay /Gandhi/: AGE: 54 years old
+US27: INDIVIDUAL: Ashish /Gandhi/: AGE: 56 years old
+US27: INDIVIDUAL: Jesal /Yandhi/: AGE: 20 years old
+US27: INDIVIDUAL: Rohan /Gandhi/: AGE: 27 years old
+US27: INDIVIDUAL: Vraj /Gandhi/: AGE: 21 years old
+US27: INDIVIDUAL: Ganesh /Gandhi/: AGE: 52 years old
+US27: INDIVIDUAL: Shikha /Gandhi/: AGE: 26 years old
+US13: ERROR: FAMILY: Paresh /Gandhi/ and Angela /Ratajkowski/ have birthdates 130 days apart
+US13: ERROR: FAMILY: Dharmesh /Gandhi/ and Angela /Ratajkowski/ have birthdates 130 days apart
+US13: ERROR: FAMILY: Falguni /Gandhi/ and Angela /Ratajkowski/ have birthdates 130 days apart
+US13: ERROR: FAMILY: Jyoti /Gandhi/ and Angela /Ratajkowski/ have birthdates 130 days apart
+US13: ERROR: FAMILY: Deepika /Gandhi/ and Angela /Ratajkowski/ have birthdates 130 days apart
